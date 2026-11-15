@@ -1,6 +1,6 @@
 {
-  "version": 2,
-  "minClient": 1,
+  "version": 4,
+  "minClient": 2,
   "apps": {
     "com.instagram.android": {
       "surfaces": {
@@ -25,6 +25,9 @@
         "DIRECT_INBOX": [
           { "anyOf": [{ "viewId": "com.instagram.android:id/inbox_refreshable_thread_list_recyclerview" }] }
         ],
+        "STORIES": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/reel_viewer_root" }] }
+        ],
         "FEED_REEL": [
           { "anyOf": [{ "viewId": "com.instagram.android:id/clips_video_container", "descStartsWith": "reel by " }] }
         ],
@@ -33,6 +36,9 @@
         ],
         "FEED": [
           { "anyOf": [{ "viewId": "com.instagram.android:id/feed_tab", "selected": true }] }
+        ],
+        "EXPLORE": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/search_tab", "selected": true }] }
         ]
       },
       "counting": {
@@ -66,6 +72,61 @@
           "com.google.android.youtube:id/reel_recycler",
           "com.google.android.youtube:id/reel_player_underlay"
         ]
+      }
+    },
+    "com.facebook.katana": {
+      "surfaces": {
+        "REELS_PLAYER": [
+          { "anyOf": [{ "viewId": "com.facebook.katana:id/reels_viewer_view_pager" }] }
+        ],
+        "FEED_REEL": [
+          { "anyOf": [{ "viewId": "com.facebook.katana:id/reels_video_container", "descStartsWith": "reel by " }] }
+        ],
+        "REELS_TAB": [
+          { "anyOf": [{ "viewId": "com.facebook.katana:id/tab_reels", "selected": true }] }
+        ],
+        "FEED": [
+          { "anyOf": [{ "viewId": "com.facebook.katana:id/tab_home", "selected": true }] }
+        ]
+      },
+      "counting": {
+        "pagerViewIds": ["com.facebook.katana:id/reels_viewer_view_pager"],
+        "reelKey": [{ "viewId": "com.facebook.katana:id/reels_video_container", "descStartsWith": "reel by " }]
+      }
+    },
+    "com.snapchat.android": {
+      "surfaces": {
+        "REELS_PLAYER": [
+          { "anyOf": [{ "viewId": "com.snapchat.android:id/spotlight_view_pager" }] }
+        ],
+        "DIRECT_THREAD": [
+          {
+            "anyOf": [
+              { "viewId": "com.snapchat.android:id/chat_input_text_field" },
+              { "viewId": "com.snapchat.android:id/chat_message_list" }
+            ]
+          }
+        ],
+        "DIRECT_INBOX": [
+          {
+            "anyOf": [
+              { "viewId": "com.snapchat.android:id/friends_feed_recycler_view" },
+              { "viewId": "com.snapchat.android:id/ngs_chat_icon_container", "selected": true }
+            ]
+          }
+        ],
+        "STORIES": [
+          { "anyOf": [{ "viewId": "com.snapchat.android:id/ngs_community_icon_container", "selected": true }] }
+        ],
+        "EXPLORE": [
+          { "anyOf": [{ "viewId": "com.snapchat.android:id/ngs_map_icon_container", "selected": true }] }
+        ],
+        "REELS_TAB": [
+          { "anyOf": [{ "viewId": "com.snapchat.android:id/ngs_spotlight_icon_container", "selected": true }] }
+        ]
+      },
+      "counting": {
+        "pagerViewIds": ["com.snapchat.android:id/spotlight_view_pager"]
       }
     }
   }
