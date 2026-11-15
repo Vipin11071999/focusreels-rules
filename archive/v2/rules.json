@@ -1,0 +1,72 @@
+{
+  "version": 2,
+  "minClient": 1,
+  "apps": {
+    "com.instagram.android": {
+      "surfaces": {
+        "REELS_PLAYER": [
+          {
+            "appVersionRange": ">=300",
+            "anyOf": [{ "viewId": "com.instagram.android:id/clips_viewer_view_pager" }]
+          },
+          {
+            "appVersionRange": "<300",
+            "anyOf": [{ "viewId": "com.instagram.android:id/clips_viewer_container" }]
+          }
+        ],
+        "DIRECT_THREAD": [
+          {
+            "anyOf": [
+              { "viewId": "com.instagram.android:id/row_thread_composer_edittext" },
+              { "viewId": "com.instagram.android:id/message_list" }
+            ]
+          }
+        ],
+        "DIRECT_INBOX": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/inbox_refreshable_thread_list_recyclerview" }] }
+        ],
+        "FEED_REEL": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/clips_video_container", "descStartsWith": "reel by " }] }
+        ],
+        "REELS_TAB": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/clips_tab", "selected": true }] }
+        ],
+        "FEED": [
+          { "anyOf": [{ "viewId": "com.instagram.android:id/feed_tab", "selected": true }] }
+        ]
+      },
+      "counting": {
+        "pagerViewIds": [
+          "com.instagram.android:id/clips_viewer_view_pager",
+          "com.instagram.android:id/clips_viewer_container"
+        ],
+        "reelKey": [{ "viewId": "com.instagram.android:id/clips_video_container", "descStartsWith": "reel by " }]
+      }
+    },
+    "com.google.android.youtube": {
+      "surfaces": {
+        "SHORTS_PLAYER": [
+          {
+            "anyOf": [
+              { "viewId": "com.google.android.youtube:id/reel_recycler" },
+              { "viewId": "com.google.android.youtube:id/reel_player_page_container" },
+              { "viewId": "com.google.android.youtube:id/reel_watch_player" }
+            ]
+          }
+        ],
+        "REELS_TAB": [
+          { "anyOf": [{ "className": "android.widget.Button", "descEquals": "shorts", "selected": true }] }
+        ],
+        "FEED": [
+          { "anyOf": [{ "viewId": "com.google.android.youtube:id/results" }] }
+        ]
+      },
+      "counting": {
+        "pagerViewIds": [
+          "com.google.android.youtube:id/reel_recycler",
+          "com.google.android.youtube:id/reel_player_underlay"
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "minClient": 1,
   "apps": {
     "com.instagram.android": {
